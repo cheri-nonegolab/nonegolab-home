@@ -3,7 +3,7 @@ module.exports = {
     theme: {
         extend: {
             boxShadow: {
-                "shadow-bottom": "0 10px 10px -10px rgba(33, 35, 38, 0.3)",
+                bottom: "0 10px 10px -10px rgba(33, 35, 38, 0.3)",
             },
             colors: {
                 danger: "#ff7979",

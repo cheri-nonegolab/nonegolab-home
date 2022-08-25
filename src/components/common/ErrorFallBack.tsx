@@ -13,7 +13,9 @@ interface PropsTypes {
 export default function ErrorFallBack({ error, errorInfo, reset }: PropsTypes) {
     return (
         <Wrapper>
-            <Text styleType="danger">에러가 발생했습니다.</Text>
+            <Text type="p" className="text-danger">
+                에러가 발생했습니다.
+            </Text>
             <p className="text-[20px]">message : {error.message}</p>
             <p className="text-[20px]">name : {error.name}</p>
             {/* <p className="text-[20px]">code : {error.code}</p> */}

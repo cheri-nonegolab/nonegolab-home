@@ -11,8 +11,7 @@ import {
     SlackSendDemoFormResponseSuccess,
 } from "src/types";
 import { convertObjToFd } from "src/utils";
-import { Button } from "../common";
-import RHFInput from "../common/RHFInput";
+import { Button, RHFInput } from "../common";
 
 interface FormValues {
     name: string;
@@ -55,8 +54,6 @@ export default function DemoForm() {
         formState: { errors },
     } = useForm<FormValues>();
 
-    console.log(errors);
-
     const onSubmit: SubmitHandler<FieldValues> = (props) => {
         console.log(props);
         sendMessage();
@@ -95,11 +92,6 @@ export default function DemoForm() {
             onSubmit={handleSubmit(onSubmit)}
         >
             {formList.map((f) => {
-                const errorMessage =
-                    errors[f.name]?.type === "required"
-                        ? "값을 입력해주세요"
-                        : errors[f.name]?.message;
-
                 return (
                     <div
                         key={`demo-form-${f.name}`}

@@ -13,20 +13,20 @@ export const Default = Template.bind({});
 
 Default.args = {
     children: "It's default!",
-    styleType: "",
+    type: "",
     className: "",
 };
 
-export const Danger = Template.bind({});
-Danger.args = {
-    children: "It's danger!",
-    styleType: "danger",
+export const P = Template.bind({});
+P.args = {
+    children: "It's p tag!",
+    type: "p",
     className: "",
 };
 
-export const Section = Template.bind({});
-Section.args = {
-    children: "It's section!",
-    styleType: "section",
+export const H3 = Template.bind({});
+H3.args = {
+    children: "It's h3 tag!",
+    type: "h3",
     className: "",
 };

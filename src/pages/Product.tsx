@@ -1,5 +1,5 @@
 import React from "react";
-import BreadCrumb from "src/components/common/BreadCrumb";
+import { BreadCrumb } from "src/components/common";
 import { Content, Wrapper } from "src/layouts";
 
 export default function Product() {

@@ -62,7 +62,7 @@ export default function RHFInput<FormValues>({
             return (
                 <input
                     {...register(name, rules)}
-                    className={`border-b w-[full] ${className}`}
+                    className={`border w-[full] ${className}`}
                     onChange={onChange}
                     {...props}
                 />

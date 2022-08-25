@@ -10,7 +10,7 @@ const MENU_LIST = [
     { name: "회사소개", url: "/intro", styleType: "link" },
     { name: "제품소개", url: "/product", styleType: "link" },
     { name: "CONTACT US", url: "/contact", styleType: "link" },
-    { name: "데모 신청", url: "/demo", styleType: "link" },
+    { name: "데모신청", url: "/demo", styleType: "link" },
 ];
 
 export default function Header(): JSX.Element {

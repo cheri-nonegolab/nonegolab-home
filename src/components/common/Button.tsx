@@ -27,7 +27,7 @@ const Button = React.forwardRef<RefType, PropsTypes>(
                     <button
                         onClick={onClick}
                         ref={ref}
-                        className={`h-max w-max bg-black text-white py-[5px] px-[10px] rounded flex items-center transition-all hover:bg-blue ${className}`}
+                        className={`h-max w-max bg-navy text-white py-[5px] px-[10px] rounded flex items-center transition-all hover:bg-blue ${className}`}
                         {...props}
                     >
                         {children}

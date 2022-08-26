@@ -11,7 +11,8 @@ import {
     SlackSendDemoFormResponseSuccess,
 } from "src/types";
 import { convertObjToFd } from "src/utils";
-import { Button, RHFInput } from "../common";
+import { Button, RHFInput, Text } from "../common";
+import { confirmBox } from "src/utils/notify";
 
 interface FormValues {
     name: string;
@@ -54,13 +55,14 @@ export default function DemoForm() {
         formState: { errors },
     } = useForm<FormValues>();
 
-    const onSubmit: SubmitHandler<FieldValues> = (props) => {
-        console.log(props);
-        sendMessage();
+    const onSubmit: SubmitHandler<FormValues> = (props: FormValues) => {
+        confirmBox("신청하시겠습니까?", () => {
+            sendMessage(props);
+        });
     };
 
-    const sendMessage = async () => {
-        console.log("전송");
+    const sendMessage = async (data: FormValues) => {
+        console.log("전송,data");
         return;
 
         const request = {
@@ -88,31 +90,39 @@ export default function DemoForm() {
 
     return (
         <form
-            className="flex flex-col gap-[20px] items-center justify-center h-[calc(100%-24px)]"
+            className="gap-[20px] h-[calc(100%-44px)] mt-[10px] border rounded p-[20px] "
             onSubmit={handleSubmit(onSubmit)}
         >
-            {formList.map((f) => {
-                return (
-                    <div
-                        key={`demo-form-${f.name}`}
-                        className="grid grid-cols-[150px_1fr] items-center"
-                    >
-                        <strong>{f.label}</strong>
-                        <RHFInput<FormValues>
-                            key={`demo-form-${f.name}`}
-                            name={f.name}
-                            register={register}
-                            rules={f.rules}
-                            type={f.type}
-                        />
-                    </div>
-                );
-            })}
+            <Text type="p" className="text-[13px] mb-[20px]">
+                하단의 내용을 기재해 주시면, 전화 또는 이메일로 안내해 드립니다.
+            </Text>
+            <table className="border border-collapse">
+                <tbody>
+                    {formList.map((f) => {
+                        return (
+                            <tr key={`demo-form-${f.name}`}>
+                                <td className="p-[10px] border border-gray-dark bg-gray-light">
+                                    <Text type="strong">{f.label}</Text>
+                                </td>
+                                <td className="p-[10px] border border-gray-dark">
+                                    <RHFInput<FormValues>
+                                        key={`demo-form-${f.name}`}
+                                        name={f.name}
+                                        register={register}
+                                        rules={f.rules}
+                                        type={f.type}
+                                    />
+                                </td>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
             <Button
                 className="border mt-[30px]"
                 onClick={handleSubmit(onSubmit)}
             >
-                slack 메세지 연결
+                신청
             </Button>
         </form>
     );

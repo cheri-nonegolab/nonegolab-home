@@ -9,10 +9,10 @@ interface PropsTypes {
 export default function Text({ children, type, className }: PropsTypes) {
     switch (type) {
         case "p":
-            return <p className={`text-[20px] ${className}`}>{children}</p>;
+            return <p className={`text-[15px] ${className}`}>{children}</p>;
         case "strong":
             return (
-                <strong className={`text-[20px] font-bold ${className}`}>
+                <strong className={`text-[15px] font-bold ${className}`}>
                     {children}
                 </strong>
             );

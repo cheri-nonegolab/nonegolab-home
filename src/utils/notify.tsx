@@ -46,7 +46,7 @@ export const notify = (
 export const confirmBox = (
     confirmMessage: string,
     confirmProcess: () => void,
-    dismissProcess: () => void
+    dismissProcess?: () => void
 ) => {
     Swal.fire({
         title: confirmMessage,

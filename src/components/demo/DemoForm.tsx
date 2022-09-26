@@ -62,11 +62,8 @@ export default function DemoForm() {
     };
 
     const sendMessage = async (data: FormValues) => {
-        console.log("전송,data");
-        return;
-
         const request = {
-            text: "hi!",
+            text: `name: ${data.name}\nemail: ${data.email}\nphone: ${data.phone}`,
             token: `${process.env.REACT_APP_SLACK_BOT_TOKEN}`,
             channel: `${process.env.REACT_APP_SLACK_CHANEL_ID}`,
         };
@@ -84,8 +81,11 @@ export default function DemoForm() {
             );
 
             if (result.ok === true) {
+                alert("전송완료");
             }
-        } catch {}
+        } catch {
+            alert("전송실패");
+        }
     };
 
     return (
